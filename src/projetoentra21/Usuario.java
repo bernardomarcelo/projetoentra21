@@ -1,4 +1,4 @@
-package br.senac;
+//package br.senac;
 
 public class Usuario {
     private Long id;
