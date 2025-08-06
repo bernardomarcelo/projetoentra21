@@ -22,7 +22,12 @@ public class Usuario {
         setNome(nome);
         setId(id);
         setEmail(email);
-    }
+        
+        
+        	
+        }
+    
+    public Usuario() {}
 
     /*public Usuario(String senha, String apelido, String sobrenome, String nome, Long id, Foto foto) {
         setSenha(senha);
@@ -66,7 +71,9 @@ public class Usuario {
         setEstabelecimentosFavoritos(estabelecimentosFavoritos);
     }*/
 
-    public String getSenha() {
+   
+
+	public String getSenha() {
         return senha;
     }
 

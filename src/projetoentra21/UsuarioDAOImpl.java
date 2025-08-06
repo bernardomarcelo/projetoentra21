@@ -1,8 +1,10 @@
 package projetoentra21;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
@@ -100,27 +102,70 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	}
 
 	@Override
-	public Usuario recuperarUsuario(Usuario usuario) {
-		
-		if (usuario.getId() == null) {
-		    throw new IllegalArgumentException("Usuário não encontrado");
+	public Usuario recuperarUsuario(long id) {
+			Usuario usuario = null;
 		    
-		    String sql = "SELECT * FROM usuario WEHRE id = ?";
+		    String sql = "SELECT * FROM usuario WHERE id = ?";
 		    
 		    try {
 		    	PreparedStatement stmt = conexao.prepareStatement(sql);
-		    	stmt
+		    	stmt.setLong(1, id);
+		    	ResultSet rs = stmt.executeQuery();
 		    	
+		    	if (rs.next()) {
+		    		usuario = new Usuario();
+		    		
+		    		usuario.setId(rs.getLong("id"));
+		    		usuario.setNome(rs.getString("nome"));
+		    		usuario.setSobrenome(rs.getString("sobrenome"));
+		    		usuario.setApelido(rs.getString("apelido"));
+		    		usuario.setEmail(rs.getString("email"));
+		    		usuario.setSenha(rs.getString("senha"));
+		    		rs.close();
+		    		stmt.close();
+		    		
+		    	}
+		    	
+		    	
+		    }catch (SQLException e) {
+		    	e.printStackTrace();
 		    }
-		}
-		
-		return null;
+		   
+		    return usuario;
 	}
+		
+	
 
 	@Override
 	public List<Usuario> recuperarUsuarios() {
+		List<Usuario> usuarios = new ArrayList();
 		
-		return null;
+		String sql = "SELECT * FROM usuario";
+		
+		try {
+			PreparedStatement stmt = conexao.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			
+			while(rs.next()) {
+				Usuario usuario = new Usuario();
+				usuario.setId(rs.getLong("Id"));
+				usuario.setNome(rs.getString("nome"));
+				usuario.setSobrenome(rs.getString("sobrenome"));
+				usuario.setApelido(rs.getString("apelido"));
+				usuario.setEmail(rs.getString("email"));
+				usuario.setSenha(rs.getString("senha"));
+				
+				
+				
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		return usuarios;
 	}
 
 }

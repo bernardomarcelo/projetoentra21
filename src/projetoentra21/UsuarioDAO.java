@@ -10,7 +10,7 @@ public interface UsuarioDAO {
 	
 		void editarUsuario (Usuario usuario);
 		
-		Usuario recuperarUsuario(Usuario usuario);
+		public Usuario recuperarUsuario(long id);
 		
 		List<Usuario> recuperarUsuarios();
 	
