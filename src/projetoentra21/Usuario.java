@@ -1,4 +1,6 @@
-//package br.senac;
+package projetoentra21;
+
+
 
 public class Usuario {
     private Long id;
@@ -6,7 +8,7 @@ public class Usuario {
     private String sobrenome;
     private String apelido;
     private String senha;
-    private Foto foto;
+    //private Foto foto;
     /*private NivelUsuario nivelUsuario;
     private ConquistaDesbloqueada[] conquistaDesbloqueada;
     private EstabelecimentosFavoritos[] estabelecimentosFavoritos;*/
@@ -20,14 +22,14 @@ public class Usuario {
         setId(id);
     }
 
-    public Usuario(String senha, String apelido, String sobrenome, String nome, Long id, Foto foto) {
+    /*public Usuario(String senha, String apelido, String sobrenome, String nome, Long id, Foto foto) {
         setSenha(senha);
         setApelido(apelido);
         setSobrenome(sobrenome);
         setNome(nome);
         setId(id);
         setFoto(foto);
-    }
+    }*/
 
    /* public Usuario(Long id, String nome, String sobrenome, String apelido, String senha, Foto foto, NivelUsuario nivelUsuario) {
         setId(id);
@@ -102,7 +104,7 @@ public class Usuario {
         this.id = id;
     }
 
-    public Foto getFoto() {
+    /*public Foto getFoto() {
         return foto;
     }
 
