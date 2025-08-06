@@ -8,18 +8,20 @@ public class Usuario {
     private String sobrenome;
     private String apelido;
     private String senha;
+    private String email;
     //private Foto foto;
     /*private NivelUsuario nivelUsuario;
     private ConquistaDesbloqueada[] conquistaDesbloqueada;
     private EstabelecimentosFavoritos[] estabelecimentosFavoritos;*/
 
 
-    public Usuario(String senha, String apelido, String sobrenome, String nome, Long id) {
+    public Usuario(String senha, String apelido, String sobrenome, String nome, String email, Long id) {
         setSenha(senha);
         setApelido(apelido);
         setSobrenome(sobrenome);
         setNome(nome);
         setId(id);
+        setEmail(email);
     }
 
     /*public Usuario(String senha, String apelido, String sobrenome, String nome, Long id, Foto foto) {
@@ -103,6 +105,14 @@ public class Usuario {
     public void setId(Long id) {
         this.id = id;
     }
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
     /*public Foto getFoto() {
         return foto;

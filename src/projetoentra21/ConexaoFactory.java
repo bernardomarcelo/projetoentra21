@@ -10,9 +10,10 @@ import java.sql.SQLException;
 		private static final String host = "root";
 		private static final String senha  = "bernardo792007";
 		
-		public static Connection getConnection () {
+		public static Connection getConnection () throws ClassNotFoundException {
 			
 			try {
+				 Class.forName("com.mysql.cj.jdbc.Driver");
 				return DriverManager.getConnection(url,host,senha);
 			
 			} catch (SQLException e) {
