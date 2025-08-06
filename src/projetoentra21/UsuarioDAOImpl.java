@@ -98,7 +98,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	@Override
 	public Usuario recuperarUsuario(long id) {
 		Usuario usuario = null;
-		
+
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 
@@ -107,7 +107,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		try {
 			stmt = conexao.prepareStatement(sql);
 			stmt.setLong(1, id);
-			 rs = stmt.executeQuery();
+			rs = stmt.executeQuery();
 
 			if (rs.next()) {
 				usuario = new Usuario();
@@ -125,7 +125,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			e.printStackTrace();
 
 		} finally {
-			
+
 			try {
 				if (rs != null)
 					rs.close();
@@ -137,10 +137,9 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 			}
 		}
-		
+
 		return usuario;
 	}
-	
 
 	@Override
 	public List<Usuario> recuperarUsuarios() {
