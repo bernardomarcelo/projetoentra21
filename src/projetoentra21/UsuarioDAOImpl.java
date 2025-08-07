@@ -25,12 +25,14 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 	@Override
 	public void inserirUsuario(Usuario usuario) {
-
+		PreparedStatement stmt = null;
+		
+		
 		String sql = "INSERT INTO usuario (nome, sobrenome, apelido, email, senha) VALUES (?, ?, ?, ?, ?)";
 
 		try {
 
-			PreparedStatement stmt = conexao.prepareStatement(sql);
+			 stmt = conexao.prepareStatement(sql);
 			stmt.setString(1, usuario.getNome());
 			stmt.setString(2, usuario.getSobrenome());
 			stmt.setString(3, usuario.getApelido());
@@ -42,13 +44,27 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		} catch (SQLException e) {
 
 			e.printStackTrace();
+		
+		}finally {
+
+			try {
+				if (stmt != null)
+					stmt.close();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+
+			}
 		}
 
 	}
 
 	@Override
 	public void deletarUsuario(Usuario usuario) {
-
+		PreparedStatement stmt = null;
+		
+		
+		
 		if (usuario.getId() == null) {
 			throw new IllegalArgumentException("ID não encontrado");
 		}
@@ -57,7 +73,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 		try {
 
-			PreparedStatement stmt = conexao.prepareStatement(sql);
+			 stmt = conexao.prepareStatement(sql);
 			stmt.setLong(1, usuario.getId());
 			stmt.executeUpdate();
 			stmt.close();
@@ -65,13 +81,28 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		} catch (SQLException e) {
 
 			e.printStackTrace();
+		
+		}finally {
+
+			try {
+				if (stmt != null)
+					stmt.close();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+
+			}
 		}
 
 	}
 
 	@Override
 	public void editarUsuario(Usuario usuario) {
-
+			
+			PreparedStatement stmt = null;
+			
+		
+		
 		if (usuario.getId() == null) {
 			throw new IllegalArgumentException("ID não encontrado");
 		}
@@ -79,7 +110,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		String sql = "UPDADE usuario SET nome = ?, sobrenome = ?, Apelido = ?, email = ?, senha = ?, WHERE id = ?";
 
 		try {
-			PreparedStatement stmt = conexao.prepareStatement(sql);
+			 stmt = conexao.prepareStatement(sql);
 			stmt.setString(1, usuario.getNome());
 			stmt.setString(2, usuario.getSobrenome());
 			stmt.setString(3, usuario.getApelido());
@@ -91,6 +122,16 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+
+			try {
+				if (stmt != null)
+					stmt.close();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+
+			}
 		}
 
 	}
@@ -143,6 +184,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 	@Override
 	public List<Usuario> recuperarUsuarios() {
+		
 		List<Usuario> usuarios = new ArrayList<>();
 		ResultSet rs = null;
 		PreparedStatement stmt = null;
