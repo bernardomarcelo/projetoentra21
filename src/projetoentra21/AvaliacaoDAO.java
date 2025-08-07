@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface AvaliacaoDAO {
 
-	void publicarAvaliacao(Avaliacao avaliacao);
+	void inserirAvaliacao(Avaliacao avaliacao);
 	void editarAvaliacao(Avaliacao avaliacao);
-	void excluirAvaliacao(long id);
+	void deletarAvaliacao(Avaliacao avaliacao);
 	Avaliacao recuperarAvaliacao(long id);
 	List<Avaliacao> recuperarAvaliacoes();
 }

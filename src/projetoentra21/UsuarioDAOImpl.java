@@ -107,7 +107,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			throw new IllegalArgumentException("ID não encontrado");
 		}
 
-		String sql = "UPDADE usuario SET nome_usuario = ?, sobrenome_usuario = ?, Apelido_usuario = ?, email_usuario = ?, senha_usuario = ?, WHERE id_usuario = ?";
+		String sql = "UPDATE usuario SET nome_usuario = ?, sobrenome_usuario = ?, Apelido_usuario = ?, email_usuario = ?, senha_usuario = ? WHERE id_usuario = ?";
 
 		try {
 			 stmt = conexao.prepareStatement(sql);
@@ -118,7 +118,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			stmt.setString(5, usuario.getSenha());
 			stmt.setLong(6, usuario.getId());
 			stmt.executeUpdate();
-			stmt.close();
+			
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -196,7 +196,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 			while (rs.next()) {
 				Usuario usuario = new Usuario();
-				usuario.setId(rs.getLong("Id_usuario"));
+				usuario.setId(rs.getLong("id_usuario"));
 				usuario.setNome(rs.getString("nome_usuario"));
 				usuario.setSobrenome(rs.getString("sobrenome_usuario"));
 				usuario.setApelido(rs.getString("apelido_usuario"));

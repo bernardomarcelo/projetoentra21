@@ -4,7 +4,7 @@ package projetoentra21;
 
 public class Avaliacao {
 	
-	 private long id;
+	 private Long id;
 	 private int nota;
 	 private String descricao;
 	 private Usuario usuario;
@@ -25,7 +25,7 @@ public class Avaliacao {
 	 
 	 
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
