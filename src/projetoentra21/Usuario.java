@@ -27,6 +27,17 @@ public class Usuario {
         	
         }
     
+    public Usuario(String senha, String apelido, String sobrenome, String nome, String email) {
+        setSenha(senha);
+        setApelido(apelido);
+        setSobrenome(sobrenome);
+        setNome(nome);
+        setId(id);
+        setEmail(email);
+        
+        
+        	
+        }
     public Usuario() {}
 
     /*public Usuario(String senha, String apelido, String sobrenome, String nome, Long id, Foto foto) {
