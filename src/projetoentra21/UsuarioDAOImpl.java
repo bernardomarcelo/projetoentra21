@@ -28,7 +28,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		PreparedStatement stmt = null;
 		
 		
-		String sql = "INSERT INTO usuario (nome, sobrenome, apelido, email, senha) VALUES (?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO usuario (nome_usuario, sobrenome_usuario, apelido_usuario, email_usuario, senha_usuario) VALUES (?, ?, ?, ?, ?)";
 
 		try {
 
@@ -69,7 +69,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			throw new IllegalArgumentException("ID não encontrado");
 		}
 
-		String sql = "DELETE FROM usuario WHERE id = ?";
+		String sql = "DELETE FROM usuario WHERE id_usuario = ?";
 
 		try {
 
@@ -107,7 +107,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			throw new IllegalArgumentException("ID não encontrado");
 		}
 
-		String sql = "UPDADE usuario SET nome = ?, sobrenome = ?, Apelido = ?, email = ?, senha = ?, WHERE id = ?";
+		String sql = "UPDADE usuario SET nome_usuario = ?, sobrenome_usuario = ?, Apelido_usuario = ?, email_usuario = ?, senha_usuario = ?, WHERE id_usuario = ?";
 
 		try {
 			 stmt = conexao.prepareStatement(sql);
@@ -143,7 +143,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 
-		String sql = "SELECT * FROM usuario WHERE id = ?";
+		String sql = "SELECT * FROM usuario WHERE id_usuario = ?";
 
 		try {
 			stmt = conexao.prepareStatement(sql);
@@ -153,12 +153,12 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			if (rs.next()) {
 				usuario = new Usuario();
 
-				usuario.setId(rs.getLong("id"));
-				usuario.setNome(rs.getString("nome"));
-				usuario.setSobrenome(rs.getString("sobrenome"));
-				usuario.setApelido(rs.getString("apelido"));
-				usuario.setEmail(rs.getString("email"));
-				usuario.setSenha(rs.getString("senha"));
+				usuario.setId(rs.getLong("id_usuario"));
+				usuario.setNome(rs.getString("nome_usuario"));
+				usuario.setSobrenome(rs.getString("sobrenome_usuario"));
+				usuario.setApelido(rs.getString("apelido_usuario"));
+				usuario.setEmail(rs.getString("email_usuario"));
+				usuario.setSenha(rs.getString("senha_usuario"));
 
 			}
 
@@ -196,12 +196,12 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 			while (rs.next()) {
 				Usuario usuario = new Usuario();
-				usuario.setId(rs.getLong("Id"));
-				usuario.setNome(rs.getString("nome"));
-				usuario.setSobrenome(rs.getString("sobrenome"));
-				usuario.setApelido(rs.getString("apelido"));
-				usuario.setEmail(rs.getString("email"));
-				usuario.setSenha(rs.getString("senha"));
+				usuario.setId(rs.getLong("Id_usuario"));
+				usuario.setNome(rs.getString("nome_usuario"));
+				usuario.setSobrenome(rs.getString("sobrenome_usuario"));
+				usuario.setApelido(rs.getString("apelido_usuario"));
+				usuario.setEmail(rs.getString("email_usuario"));
+				usuario.setSenha(rs.getString("senha_usuario"));
 
 				usuarios.add(usuario);
 

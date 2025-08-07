@@ -5,8 +5,9 @@ public class TesteConexao {
 	    public static void main(String[] args) {
 	       
 	    	Usuario usuario = new Usuario("joao", "silva", "jojo", "joao@gmail", "ff");
+	    	Usuario usuario2 = new Usuario("joao", "silva", "jojo", "joao@gmail", "ff");
 	    	UsuarioDAOImpl dao = new UsuarioDAOImpl();
-	    	dao.inserirUsuario(usuario);
+	    	dao.inserirUsuario(usuario2);
 	    	
 	    	
 	    	
