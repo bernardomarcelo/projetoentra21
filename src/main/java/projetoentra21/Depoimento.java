@@ -1,6 +1,7 @@
 package projetoentra21;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Depoimento {
 	
@@ -8,11 +9,11 @@ public class Depoimento {
 	private Usuario usuario;
 	private String conteudoDepoimento;
 	private Avaliacao avaliacao;
-	private LocalDate dataDepoimento;
+	private LocalDateTime dataDepoimento;
 	
 	public Depoimento () {}
 	
-	public Depoimento(Long id, Usuario usuario, String conteudoDepoimento, Avaliacao avaliacao, LocalDate dataDepoimento) {
+	public Depoimento(Long id, Usuario usuario, String conteudoDepoimento, Avaliacao avaliacao, LocalDateTime dataDepoimento) {
 		setId(id);
 		setUsuario(usuario);
 		setConteudoDepoimento(conteudoDepoimento);
@@ -20,7 +21,7 @@ public class Depoimento {
 		setDataDepoimento(dataDepoimento);
 	}
 	
-	public Depoimento( Usuario usuario, String conteudoDepoimento, Avaliacao avaliacao, LocalDate dataDepoimento) {
+	public Depoimento( Usuario usuario, String conteudoDepoimento, Avaliacao avaliacao, LocalDateTime dataDepoimento) {
 		setUsuario(usuario);
 		setConteudoDepoimento(conteudoDepoimento);
 		setAvaliacao(avaliacao);
@@ -51,10 +52,10 @@ public class Depoimento {
 	public void setAvaliacao(Avaliacao avaliacao) {
 		this.avaliacao = avaliacao;
 	}
-	public LocalDate getDataDepoimento() {
+	public LocalDateTime getDataDepoimento() {
 		return dataDepoimento;
 	}
-	public void setDataDepoimento(LocalDate dataDepoimento) {
+	public void setDataDepoimento(LocalDateTime dataDepoimento) {
 		this.dataDepoimento = dataDepoimento;
 	}
 	
