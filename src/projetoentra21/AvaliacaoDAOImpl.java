@@ -33,8 +33,8 @@ public class AvaliacaoDAOImpl implements AvaliacaoDAO {
 			stmt = conexao.prepareStatement(sql);
 			stmt.setInt(1, avaliacao.getNota());
 			stmt.setString(2, avaliacao.getDescricao());
-			stmt.setObject(3, avaliacao.getUsuario().getId());
-			stmt.setObject(4, avaliacao.getEstabelecimento().getId());
+			stmt.setLong(3, avaliacao.getUsuario().getId());
+			stmt.setLong(4, avaliacao.getEstabelecimento().getId());
 			stmt.executeUpdate();
 
 		} catch (SQLException e) {

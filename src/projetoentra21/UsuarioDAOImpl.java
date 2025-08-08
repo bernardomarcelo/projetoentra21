@@ -76,7 +76,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			 stmt = conexao.prepareStatement(sql);
 			stmt.setLong(1, usuario.getId());
 			stmt.executeUpdate();
-			stmt.close();
+			
 
 		} catch (SQLException e) {
 
