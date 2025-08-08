@@ -23,13 +23,23 @@ public class Avaliacao {
 		 
 	 }
 	 
+	 public Avaliacao( int nota, String descricao, Usuario usuario, Estabelecimento estabelecimento) {
+		
+		 setNota(nota);
+		 setDescricao(descricao);
+		 setUsuario(usuario);
+		 setEstabelecimento(estabelecimento);
+		 
+		 
+	 }
+	 
 	 
 
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

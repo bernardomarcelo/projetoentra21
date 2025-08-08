@@ -30,7 +30,27 @@ public class Estabelecimento {
         setFoto(foto);
     }*/
 
-    public Long getId() {
+    
+     public Estabelecimento(Long id, String nome, String cnpj, String email, String telefone, String horarioFuncionamento) {
+    setId(id);
+    setNome(nome);
+    
+    setCnpj(cnpj);
+    setEmail(email);
+    setTelefone(telefone);
+    setHorarioFuncionamento(horarioFuncionamento);
+    
+     }
+    
+    
+    
+    public Estabelecimento() {
+		
+	}
+
+
+
+	public Long getId() {
 
         return id;
     }

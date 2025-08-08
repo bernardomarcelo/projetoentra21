@@ -27,18 +27,14 @@ public class AvaliacaoDAOImpl implements AvaliacaoDAO {
 	public void inserirAvaliacao(Avaliacao avaliacao) {
 		PreparedStatement stmt = null;
 
-		if (avaliacao.getId() == null) {
-			throw new IllegalArgumentException("ID não encontrado");
-		}
-
-		String sql = "INSERT INTO avaliacao(nota_avaliacao, descricao_avaliacao, id_usuario, id_estabelecimento) VALUES (?, ?, ?, ?)";
+		String sql = "INSERT INTO avaliacao (nota_avaliacao, descricao_avaliacao, id_usuario, id_estabelecimento) VALUES (?, ?, ?, ?)";
 
 		try {
 			stmt = conexao.prepareStatement(sql);
 			stmt.setInt(1, avaliacao.getNota());
 			stmt.setString(2, avaliacao.getDescricao());
-			stmt.setLong(3, avaliacao.getUsuario().getId());
-			stmt.setLong(4, avaliacao.getEstabelecimento().getId());
+			stmt.setObject(3, avaliacao.getUsuario().getId());
+			stmt.setObject(4, avaliacao.getEstabelecimento().getId());
 			stmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -120,7 +116,7 @@ public class AvaliacaoDAOImpl implements AvaliacaoDAO {
 		Avaliacao avaliacao = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM avaliacao WHERE id_avaliacao = ?";
+		String sql = "SELECT id_avaliacao, nota_avaliacao, descricao_avaliacao, id_usuario, id_estabelecimento FROM avaliacao WHERE id_avaliacao = ?";
 
 		try {
 
@@ -135,11 +131,11 @@ public class AvaliacaoDAOImpl implements AvaliacaoDAO {
 				avaliacao.setNota(rs.getInt("nota_avaliacao"));
 				avaliacao.setDescricao(rs.getString("descricao_avaliacao"));
 
-				Usuario usuario = new Usuario();
+				Usuario usuario = new Usuario();  //Apenas id do usuario
 				usuario.setId(rs.getLong("id_usuario"));
 				avaliacao.setUsuario(usuario);
 
-				Estabelecimento estabelecimento = new Estabelecimento();
+				Estabelecimento estabelecimento = new Estabelecimento();    // Apenas id do estabelecimento
 				estabelecimento.setId(rs.getLong("id_estabelecimento"));
 				avaliacao.setEstabelecimento(estabelecimento);
 
@@ -168,7 +164,7 @@ public class AvaliacaoDAOImpl implements AvaliacaoDAO {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 
-		String sql = "SELECT * FROM avaliacao";
+		String sql = "SELECT id_avaliacao, nota_avaliacao, descricao_avaliacao, id_usuario, id_estabelecimento FROM avaliacao";
 
 		try {
 			stmt = conexao.prepareStatement(sql);
@@ -182,11 +178,11 @@ public class AvaliacaoDAOImpl implements AvaliacaoDAO {
 				avaliacao.setNota(rs.getInt("nota_avaliacao"));
 				avaliacao.setDescricao(rs.getString("descricao_avaliacao"));
 
-				Usuario usuario = new Usuario();
+				Usuario usuario = new Usuario();  //Apenas id do usuario
 				usuario.setId(rs.getLong("id_usuario"));
 				avaliacao.setUsuario(usuario);
-
-				Estabelecimento estabelecimento = new Estabelecimento();
+									
+				Estabelecimento estabelecimento = new Estabelecimento(); //Apenas id do estabelecimento
 				estabelecimento.setId(rs.getLong("id_estabelecimento"));
 				avaliacao.setEstabelecimento(estabelecimento);
 
