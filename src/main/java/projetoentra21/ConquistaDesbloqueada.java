@@ -5,7 +5,25 @@ public class ConquistaDesbloqueada {
 	private Long id;
 	private String nomeConquista;
 	private String descricaoConquista;
-	//private Foto foto;
+	//private Foto iconeConquista;
+	
+	public ConquistaDesbloqueada() {}
+	
+	public ConquistaDesbloqueada(Long id, String nomeConquista, String descricaoConquista) {
+		setId(id);
+		setNomeConquista(nomeConquista);
+		setDescricaoConquista(descricaoConquista);
+	}
+	
+	/*public ConquistaDesbloqueada() {}
+	
+	public ConquistaDesbloqueada(Long id, String nomeConquista, String descricaoConquista, Foto iconeConquista) {
+		setId(id);
+		setNomeConquista(nomeConquista);
+		setDescricaoConquista(descricaoConquista);
+		setIconeConquista(iconeConquista);
+	}
+	*/
 	
 	
 	public Long getId() {
@@ -27,6 +45,12 @@ public class ConquistaDesbloqueada {
 		this.descricaoConquista = descricaoConquista;
 	}
 	
+	/*public Foto getIconeConquista() {
+		return iconeConquista;
+	}
 
-	
+	public void setFoto(Foto iconeConquista) {
+		this.foto = iconeConquista;
+	}
+	*/
 }
