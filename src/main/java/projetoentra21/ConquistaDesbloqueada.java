@@ -7,6 +7,26 @@ public class ConquistaDesbloqueada {
 	private String descricaoConquista;
 	//private Foto foto;
 	
-	public 
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getNomeConquista() {
+		return nomeConquista;
+	}
+	public void setNomeConquista(String nomeConquista) {
+		this.nomeConquista = nomeConquista;
+	}
+	public String getDescricaoConquista() {
+		return descricaoConquista;
+	}
+	public void setDescricaoConquista(String descricaoConquista) {
+		this.descricaoConquista = descricaoConquista;
+	}
+	
 
+	
 }
