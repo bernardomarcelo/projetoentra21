@@ -52,12 +52,15 @@ public class Depoimento {
 	public void setAvaliacao(Avaliacao avaliacao) {
 		this.avaliacao = avaliacao;
 	}
+	
 	public LocalDateTime getDataDepoimento() {
 		return dataDepoimento;
 	}
+	
 	public void setDataDepoimento(LocalDateTime dataDepoimento) {
 		this.dataDepoimento = dataDepoimento;
 	}
+	
 	
 	
 	

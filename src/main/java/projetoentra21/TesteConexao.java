@@ -1,5 +1,7 @@
 package projetoentra21;
 
+import java.time.LocalDateTime;
+
 public class TesteConexao {
 	
 	    public static void main(String[] args) {
@@ -7,13 +9,13 @@ public class TesteConexao {
 	    	Usuario usuario = new Usuario("33", null, null, null, null, 2L);
 	    	
 	    	
-	    	Estabelecimento estabelecimento = new Estabelecimento(2L, "fdfd", null, null, null, null);
+	    	Avaliacao avaliacao = new Avaliacao(6L, 0, null, usuario, null);
 	    	
 	    	
 	    	
-	    	Avaliacao avaliacao = new Avaliacao( 5, "sss", usuario, estabelecimento);
-	    	AvaliacaoDAOImpl dao = new AvaliacaoDAOImpl();
-	    	dao.inserirAvaliacao(avaliacao);
+	    	Depoimento depoimento = new Depoimento(usuario, "djeje", avaliacao, LocalDateTime.now());
+	    	DepoimentoDAOImpl dao = new DepoimentoDAOImpl();
+	    	dao.inserirDepoimento(depoimento);
 	    	
 	    	
 	    	
