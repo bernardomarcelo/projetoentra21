@@ -25,6 +25,11 @@ public class ConquistaDesbloqueada {
 	}
 	*/
 	
+	public ConquistaDesbloqueada(String nomeConquista, String descricaoConquista) {
+		setNomeConquista(nomeConquista);
+		setDescricaoConquista(descricaoConquista);
+	}
+	
 	
 	public Long getId() {
 		return id;
