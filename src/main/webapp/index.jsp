@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Enviar Depoimento</h1>
-    <form method="post" action="/seuApp/depoimento/novo">
+    <form method="post" action="/depoimento">
         <label for="avaliacaoId">ID da Avaliação:</label><br />
         <input type="text" id="avaliacaoId" name="avaliacaoId" value="1" required /><br /><br />
         

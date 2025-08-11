@@ -10,10 +10,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/depoimento")
+@WebServlet("/")
 public class DepoimentoServlet extends HttpServlet {
 
-	private static final long serialVersionUID = 1L;
+	//private static final long serialVersionUID = 1L;
 	private DepoimentoDAO dao;
 
 	public void init() {
@@ -34,7 +34,7 @@ public class DepoimentoServlet extends HttpServlet {
 		try {
 			switch (action) {
 
-			case "/depoimento/novo":
+			case "/depoimento":
 				cadastrarDepoimento(request, response);
 				break;
 
