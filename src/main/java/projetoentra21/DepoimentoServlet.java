@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/")
 public class DepoimentoServlet extends HttpServlet {
 
-	//private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 	private DepoimentoDAO dao;
 
 	public void init() {
@@ -57,6 +57,8 @@ public class DepoimentoServlet extends HttpServlet {
 
 	private void cadastrarDepoimento(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException{
 		
+
+
 		Long usuarioId = (Long) request.getSession().getAttribute("usuarioId");
 		Usuario usuario = new Usuario();
 		usuario.setId(usuarioId);
