@@ -40,9 +40,11 @@ public class DepoimentoServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String action = request.getPathInfo();
-
+		if (action == null)
+			action = "/";
 		try {
 			switch (action) {
+			
 
 			case "/":
 				cadastrarDepoimento(request, response);
@@ -112,7 +114,7 @@ public class DepoimentoServlet extends HttpServlet {
 		
 		request.setAttribute("depoimentos", depoimentos);
 		
-		request.getRequestDispatcher("/listaDepoimentos.jsp").forward(request,response);
+		request.getRequestDispatcher("/listarDepoimentos.jsp").forward(request,response);
 		
 	}
 		
@@ -130,3 +132,4 @@ public class DepoimentoServlet extends HttpServlet {
 	}
 
 }
+
